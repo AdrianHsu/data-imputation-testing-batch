@@ -16,7 +16,7 @@ batch_size = 100
 original_dim = 784
 latent_dim = 2
 intermediate_dim = 256
-nb_epoch = 50
+nb_epoch = 1
 epsilon_std = 1.0
 
 x = Input(batch_shape=(batch_size, original_dim))
@@ -71,7 +71,7 @@ x_test_encoded = encoder.predict(x_test, batch_size=batch_size)
 plt.figure(figsize=(6, 6))
 plt.scatter(x_test_encoded[:, 0], x_test_encoded[:, 1], c=y_test)
 plt.colorbar()
-plt.show()
+# plt.show()
 
 # build a digit generator that can sample from the learned distribution
 decoder_input = Input(shape=(latent_dim,))
