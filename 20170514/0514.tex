@@ -176,6 +176,22 @@ For each layer $\ell$ and for each quad-tuple $\textbf{z}_i\triangleq (\textbf{x
 \nabla_{\Theta^\ell}=\frac{\partial{J(z_i)}}{\partial\Theta^\ell}+\lambda\frac{\partial g_k(z_i^\ell)}{\partial \Theta^\ell}
 \end{equation}
 \end{block}
-
 \end{frame}
+
+\begin{frame}[fragile]{Learning Kernel}
+\begin{block}{Learning optimal kernel $k = \sum_{u=1}^m\beta_uk_u$}
+Maximizing test power $\triangleq$ minimizing Type II error (Gretton et al. 2012)
+\begin{equation}
+\max\limits_{k \in \kappa}d_k^2(D_s^\ell,D_t^\ell)\sigma_k^{-2}
+\end{equation}
+where $\sigma_k^2 = \mathbf{E}_{\mathbf{z}}g_k^2(\mathbf{z})-[\mathbf{E}_{z}g_k(\mathbf{z})]^2$ is the estimation variance.
+\end{block}
+\begin{block}{Quadratic Program (QP), scaling linearly to sample size: O($m^{2n} + m^3$)}
+\begin{equation}
+\min\limits_{d^T\beta=1,\beta\geq0}\beta^T(Q+\epsilon I)\beta
+\end{equation}
+where $\mathbf{d} = (d_1, d_2, ..., d_m)^T$, and each $d_u$ is MMD using base kernel $k_u$.
+\end{block}
+\end{frame}
+
 \end{document}

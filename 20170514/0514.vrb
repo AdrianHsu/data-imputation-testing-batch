@@ -1,16 +1,14 @@
-\frametitle{Learning CNN}
-\begin{block}{Linear-Time Algorithm of MK-MMD (Streaming Algorithm)}
-$O(n^2):d_k^2(p,q)=\mathbf{E}_{\mathbf{x}^s\mathbf{x}\prime^s}k(\mathbf{x}^s,\mathbf{x}\prime^s)+\mathbf{E}_{\mathbf{x}^t\mathbf{x}\prime^t}k(\mathbf{x}^t,\mathbf{x}\prime^t)-2\mathbf{E}_{\mathbf{x}^s\mathbf{x}^t}k(\mathbf{x}^s,\mathbf{x}^t)$
-$d_k^2(p,q)=\frac{2}{n_s}\sum\nolimits_{i=1}^{\frac{n_s}{2}}g_k(\mathbf{z}_i) \to$ linear-time unbiased estimate
-\begin{itemize}
-\item{Quad-tuple: $\textbf{z}_i\triangleq (\textbf{x}_{2i-1}^s, \textbf{x}_{2i}^s, \textbf{x}_{2i-1}^t, \textbf{x}_{2i}^t)$}
-\item{$g_k(\textbf{z}_i) \triangleq k(\textbf{x}_{2i-1}^s, \textbf{x}_{2i}^s) + k(\textbf{x}_{2i-1}^t, \textbf{x}_{2i}^t) - k(\textbf{x}_{2i-1}^s, \textbf{x}_{2i}^t) - k(\textbf{x}_{2i}^s, \textbf{x}_{2i-1}^t)$}
-\end{itemize}
-\end{block}
-\begin{block}{Stochastic Gradient Descent(SGD)}
-For each layer $\ell$ and for each quad-tuple $\textbf{z}_i\triangleq (\textbf{x}_{2i-1}^s, \textbf{x}_{2i}^s, \textbf{x}_{2i-1}^t, \textbf{x}_{2i}^t)$
+\frametitle{Learning Kernel}
+\begin{block}{Learning optimal kernel $k = \sum_{u=1}^m\beta_uk_u$}
+Maximizing test power $\triangleq$ minimizing Type II error (Gretton et al. 2012)
 \begin{equation}
-\nabla_{\Theta^\ell}=\frac{\partial{J(z_i)}}{\partial\Theta^\ell}+\lambda\frac{\partial g_k(z_i^\ell)}{\partial \Theta^\ell}
+\max\limits_{k \in \kappa}d_k^2(D_s^\ell,D_t^\ell)\sigma_k^{-2}
 \end{equation}
+where $\sigma_k^2 = \mathbf{E}_{\mathbf{z}}g_k^2(\mathbf{z})-[\mathbf{E}_{z}g_k(\mathbf{z})]^2$ is the estimation variance.
 \end{block}
-
+\begin{block}{Quadratic Program (QP), scaling linearly to sample size: O($m^{2n} + m^3$)}
+\begin{equation}
+\min\limits_{d^T\beta=1,\beta\geq0}\beta^T(Q+\epsilon I)\beta
+\end{equation}
+where $\mathbf{d} = (d_1, d_2, ..., d_m)^T$, and each $d_u$ is MMD using base kernel $k_u$.
+\end{block}

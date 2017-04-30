@@ -348,6 +348,9 @@ INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmbx6.tfm
 OUTPUT 0514.vrb
 INPUT 0514.vrb
 INPUT 0514.vrb
+OUTPUT 0514.vrb
+INPUT 0514.vrb
+INPUT 0514.vrb
 OUTPUT 0514.nav
 OUTPUT 0514.toc
 OUTPUT 0514.snm
