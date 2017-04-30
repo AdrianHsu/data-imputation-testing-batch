@@ -210,4 +210,97 @@ estimate of $\textbf{H}$-divergence, and the risk of an ideal hypothesis for bot
 \end{block}
 \end{frame}
 
+\begin{frame}[fragile]{Experiment Setup}
+\begin{itemize}
+\item{Datasets: pre-trained on ImageNet, fined-tuned on Office\&Caltech}
+\item{Tasks: 12 adaptation tasks $\Rightarrow$ An unbiased look at dataset bias}
+\item{Variants: DAN; single-layer: $DAN_7$, $DAN_8$; single-kernel: $DAN_{SK}$}
+\item{Protocols: unsupervised adaptation vs semi-supervised adaptation}
+\item{Parameter selection: cross-validation by jointly assessing}
+  \begin{itemize}
+  \item{test errors of source classifier and two-sample classifier (MK-MMD)}
+  \end{itemize}
+\end{itemize}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{fig4}
+    \caption{\emph{the proposed DAN model is trained by fine-tuning from the AlexNet model (Krizhevsky et al., 2012) pre-trained on ImageNet, implemented in Caffe.}}
+    \label{fig:mesh2}
+\end{figure}
+\end{frame}
+
+\begin{frame}[fragile]{Results \& Discussion}
+\begin{block}{Learning transferable features by deep adaptation and optimal matching}
+\begin{itemize}
+\item{Deep adaptation of multiple domain-specific layers (DAN) vs. shallow adaptation of one hard-to-tweak layer (DDC)}
+\item{Two samples can be matched better by MK-MMD vs. SK-MMD}
+\end{itemize}
+\end{block}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{table1}
+    \caption{Table 1. Accuracy on Office-31 dataset with standard unsupervised adaptation protocol }
+    \label{fig:mesh2}
+\end{figure}
+\end{frame}
+
+\begin{frame}[fragile]{Results \& Discussion}
+\begin{block}{Semi-supervised adaptation: source supervision vs. target supervision?}
+\begin{itemize}
+\item{Limited target supervision is prone to over-fitting the target task}
+\item{Source supervision can provide strong but inaccurate inductive bias}
+\item{Two-sample matching is more effective for bridging dissimilar tasks}
+\end{itemize}
+\end{block}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{table2}
+    \caption{Table 2. Accuracy on Office-10 + Caltech-10 dataset with standard unsupervised adaptation protocol }
+    \label{fig:mesh2}
+\end{figure}
+\end{frame}
+
+\begin{frame}[fragile]{Data Visualization}
+\begin{block}{How transferable are DAN features? t-SNE embedding for visualization}
+\begin{itemize}
+\item{target points form clearer class boundaries}
+\item{target points can be classified more accurately}
+\item{Source and target categories are aligned better}
+\end{itemize}
+\end{block}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{fig5}
+    \caption{t-SNE of DDC features on source (a) and target (b) versus. t-SNE of DAN features on source (c) and target (d)}
+    \label{fig:mesh2}
+\end{figure}
+\end{frame}
+
+\begin{frame}[fragile]{Empirical Analysis}
+\begin{block}{How is generalization performance related to two-sample discrepancy?}
+\begin{itemize}
+\item{$\hat{d}_A$ on CNN \& DAN features $>$ $\hat{d}_A$ on Raw features}
+\item{$\Rightarrow$ $\hat{d}_A$ on DAN feature is much smaller than $\hat{d}_A$ on CNN feature}
+\item{$\hat{d}_A$ on DAN feature $<$ $\hat{d}_A$ on CNN feature}
+\item{$\Rightarrow$Domain adaptation can be boosted by reducing domain discrepancy}
+\end{itemize}
+\end{block}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{fig6}
+    \caption{ (e) $A$-Distance of CNN \& DAN features; (f) sensitivity of $\lambda$}
+    \label{fig:mesh2}
+\end{figure}
+\end{frame}
+
+\begin{frame}[fragile]{Summary}
+\begin{itemize}
+\item{DAN: A deep adaptation network for learning transferable features}
+\item{Deep adaptation of multiple task-specific layers (including output)}
+\item{Optimal adaptation using multiple kernel two-sample matching}
+\item{Optimal adaptation using multiple kernel two-sample matching}
+\end{itemize}
+\end{frame}
+
 \end{document}

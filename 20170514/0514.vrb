@@ -1,15 +1,7 @@
-\frametitle{Analysis}
-\begin{block}{Theorem (Adaptation Bound)}
-(Ben-David et al. 2010) Let $\theta \in H$ be a hypothesis, $\epsilon_s(\theta)$ and $\epsilon_t(\theta)$ be the expected risks of source and target respectively, then
-\begin{equation}
-\epsilon_t(\theta)\leq\epsilon_s(\theta)+2d_k(p,q)+C
-\end{equation}
-where $C$ is a constant for the complexity of hypothesis space, the empirical
-estimate of $\textbf{H}$-divergence, and the risk of an ideal hypothesis for both tasks.
-\end{block}
-\begin{block}{Two-Sample Classifier: Nonparametric vs. Parametric}
+\frametitle{Summary}
 \begin{itemize}
-\item{Nonparametric MMD directly approximates $d_\mathcal{H}(p,q)$}
-\item{Parametric classifier: adversarial training to approximate $d_\mathcal{H}(p,q)$}
+\item{DAN: A deep adaptation network for learning transferable features}
+\item{Deep adaptation of multiple task-specific layers (including output)}
+\item{Optimal adaptation using multiple kernel two-sample matching}
+\item{Optimal adaptation using multiple kernel two-sample matching}
 \end{itemize}
-\end{block}
