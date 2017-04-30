@@ -120,5 +120,27 @@ Adaptation Networks}
 \end{figure}
 \end{frame}
 
+\begin{frame}[fragile]{Objective Function}
+
+\begin{block}{Main Problems)}
+\begin{itemize}
+\item{Feature transferability decreases with increasing task discrepancy}
+\item{Higher layers are tailored to specific tasks, NOT safely transferable}
+\item{Adaptation effect may vanish in back-propagation of deep networks}
+\end{itemize}
+\end{block}
+
+\begin{block}{Deep Adaptation with Optimal Matching}
+\begin{itemize}
+\item{Deep adaptation: match distributions in multiple layers includingoutput}
+\item{Optimal matching: maximize two-sample test of multiple kernels}
+\end{itemize}
+\begin{equation}
+\min\limits_\Theta\max\limits_\kappa\frac{1}{n_a}\sum\limits_{i=1}^{n_a}J(\theta(x_i^a),y_i^a)+\lambda\sum\limits_{\ell=l_1}^{l_2}d_k^2(D_s^\ell,D_t^\ell)
+\end{equation}
+$\lambda > 0$ is a penality, $D_*^\ell=\{h_i^{*\ell}\}$ is the $\ell$-th layer hidden representaion
+\end{block}
+
+\end{frame}
 
 \end{document}

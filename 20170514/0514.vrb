@@ -1,20 +1,21 @@
-\frametitle{Deep Adaptation Network (DAN)}
-\begin{block}{Key Observations (AlexNet) (Krizhevsky et al. 2012)}
+\frametitle{Objective Function}
+
+\begin{block}{Main Problems)}
 \begin{itemize}
-  \item{Comprised of five convolutional layers $conv1-conv5$ and three fully connected layers $fc6-fc8$}
-  \item{Convolutional layers learn general features: safely transferable}
-  \begin{itemize}
-  \item{Safely freeze $conv1-conv3$ \& fine tuned $conv4-conv5$}
-  \end{itemize}
-  \item{Fully-connected layers fit task specificicy: \emph{NOT} safely transferable}
-  \begin{itemize}
-  \item{Deeply adapt $fc6-fc8$ using statistically optimal two-sample matching}
-  \end{itemize}
+\item{Feature transferability decreases with increasing task discrepancy}
+\item{Higher layers are tailored to specific tasks, NOT safely transferable}
+\item{Adaptation effect may vanish in back-propagation of deep networks}
 \end{itemize}
 \end{block}
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.4\textwidth]{fig3}
-    \caption{The DAN architecture for learning transferable features }
-    \label{fig:mesh2}
-\end{figure}
+
+\begin{block}{Deep Adaptation with Optimal Matching}
+\begin{itemize}
+\item{Deep adaptation: match distributions in multiple layers includingoutput}
+\item{Optimal matching: maximize two-sample test of multiple kernels}
+\end{itemize}
+\begin{equation}
+\min\limits_\Theta\max\limits_\kappa\frac{1}{n_a}\sum\limits_{i=1}^{n_a}J(\theta(x_i^a),y_i^a)+\lambda\sum\limits_{\ell=l_1}^{l_2}d_k^2(D_s^\ell,D_t^\ell)
+\end{equation}
+$\lambda > 0$ is a penality, $D_*^\ell=\{h_i^{*\ell}\}$ is the $\ell$-th layer hidden representaion
+\end{block}
+
