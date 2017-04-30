@@ -1,4 +1,14 @@
-\frametitle{Model}
-\[
-  0 = 1 + e^{-\pi i}
-  \]
+\frametitle{Deep Adaptation Network (DAN)}
+\begin{block}{Key Observations (AlexNet) (Krizhevsky et al. 2012)}
+\begin{itemize}
+  \item{Comprised of five convolutional layers $conv1-conv5$ and three fully connected layers $fc6-fc8$}
+  \item{Convolutional layers learn general features: safely transferable}
+  \begin{itemize}
+  \item{Safely freeze $conv1-conv3$ \& fine tuned $conv4-conv5$}
+  \end{itemize}
+  \item{Fully-connected layers fit task specificicy: \emph{NOT} safely transferable}
+  \begin{itemize}
+  \item{Deeply adapt $fc6-fc8$ using statistically optimal two-sample matching}
+  \end{itemize}
+\end{itemize}
+\end{block}
