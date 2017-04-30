@@ -193,5 +193,21 @@ where $\sigma_k^2 = \mathbf{E}_{\mathbf{z}}g_k^2(\mathbf{z})-[\mathbf{E}_{z}g_k(
 where $\mathbf{d} = (d_1, d_2, ..., d_m)^T$, and each $d_u$ is MMD using base kernel $k_u$.
 \end{block}
 \end{frame}
+\begin{frame}[fragile]{Analysis}
+\begin{block}{Theorem (Adaptation Bound)}
+(Ben-David et al. 2010) Let $\theta \in H$ be a hypothesis, $\epsilon_s(\theta)$ and $\epsilon_t(\theta)$ be the expected risks of source and target respectively, then
+\begin{equation}
+\epsilon_t(\theta)\leq\epsilon_s(\theta)+2d_k(p,q)+C
+\end{equation}
+where $C$ is a constant for the complexity of hypothesis space, the empirical
+estimate of $\textbf{H}$-divergence, and the risk of an ideal hypothesis for both tasks.
+\end{block}
+\begin{block}{Two-Sample Classifier: Nonparametric vs. Parametric}
+\begin{itemize}
+\item{Nonparametric MMD directly approximates $d_\mathcal{H}(p,q)$}
+\item{Parametric classifier: adversarial training to approximate $d_\mathcal{H}(p,q)$}
+\end{itemize}
+\end{block}
+\end{frame}
 
 \end{document}

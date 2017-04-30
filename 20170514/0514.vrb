@@ -1,14 +1,15 @@
-\frametitle{Learning Kernel}
-\begin{block}{Learning optimal kernel $k = \sum_{u=1}^m\beta_uk_u$}
-Maximizing test power $\triangleq$ minimizing Type II error (Gretton et al. 2012)
+\frametitle{Analysis}
+\begin{block}{Theorem (Adaptation Bound)}
+(Ben-David et al. 2010) Let $\theta \in H$ be a hypothesis, $\epsilon_s(\theta)$ and $\epsilon_t(\theta)$ be the expected risks of source and target respectively, then
 \begin{equation}
-\max\limits_{k \in \kappa}d_k^2(D_s^\ell,D_t^\ell)\sigma_k^{-2}
+\epsilon_t(\theta)\leq\epsilon_s(\theta)+2d_k(p,q)+C
 \end{equation}
-where $\sigma_k^2 = \mathbf{E}_{\mathbf{z}}g_k^2(\mathbf{z})-[\mathbf{E}_{z}g_k(\mathbf{z})]^2$ is the estimation variance.
+where $C$ is a constant for the complexity of hypothesis space, the empirical
+estimate of $\textbf{H}$-divergence, and the risk of an ideal hypothesis for both tasks.
 \end{block}
-\begin{block}{Quadratic Program (QP), scaling linearly to sample size: O($m^{2n} + m^3$)}
-\begin{equation}
-\min\limits_{d^T\beta=1,\beta\geq0}\beta^T(Q+\epsilon I)\beta
-\end{equation}
-where $\mathbf{d} = (d_1, d_2, ..., d_m)^T$, and each $d_u$ is MMD using base kernel $k_u$.
+\begin{block}{Two-Sample Classifier: Nonparametric vs. Parametric}
+\begin{itemize}
+\item{Nonparametric MMD directly approximates $d_\mathcal{H}(p,q)$}
+\item{Parametric classifier: adversarial training to approximate $d_\mathcal{H}(p,q)$}
+\end{itemize}
 \end{block}
