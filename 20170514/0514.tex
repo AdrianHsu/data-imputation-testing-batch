@@ -21,6 +21,8 @@
 \newcommand{\vbig}{\vskip 20px}
 \newcommand{\bA}{\mathbf{A}}
 \graphicspath{ {img/} }
+\usefonttheme{serif}
+
 \usetheme{stanford}
 \author[PIN-CHUN, HSU]{ Mingsheng Long$^{12}$, Yue Cao$^1$, Jianmin Wang$^1$, and Michael I. Jordan$^2$ }
 \title[Deep Adaptation Networks]{\LARGE Learning Transferable Features with Deep
@@ -34,23 +36,23 @@ Adaptation Networks}
 
 \begin{frame}[fragile]{Introduction}
 \begin{itemize}
-\item{Goal: enhance the transferability of features from task-specific layers}
+\item{Goal: Enhance the transferability of features from task-specific layers}
 \item{Proposed a Deep Adaptation Network DAN architecture}
   \begin{itemize}
-    \item{general features can generalize well to a novel task; however, for specific features they cannot bridge the domain discrepancy}
+    \item{General features can generalize well to a novel task; however, for specific features they cannot bridge the domain discrepancy}
   \end{itemize}
 
-\item{some ways to enhance feature transferability}
+\item{Some ways to enhance feature transferability:}
   \begin{itemize}
-    \item{by mean-embedding matching, feature transferability can be enhanced substantially}
-    \item{utilizing multi-layer representations across domains in a reproducing kernel Hilbert space}
+    \item{By mean-embedding matching, feature transferability can be enhanced substantially}
+    \item{Utilizing multi-layer representations across domains in a reproducing kernel Hilbert space}
   \end{itemize}
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]{Main Breakthrough}
 \begin{itemize}
-\item{\emph{generalizes deep CNN to the domain adaptation}}
+\item{\emph{Generalizes deep CNN to the domain adaptation}}
 \item{Deep adaptation of multiple task-specific layers, including output}
 \item{Optimal adaptation using multiple kernel two-sample matching}
 \end{itemize}
@@ -75,7 +77,7 @@ Adaptation Networks}
 \end{itemize}
 \begin{figure}[h]
     \centering
-    \includegraphics[width=1\textwidth]{fig1}
+    \includegraphics[width=0.95\textwidth]{fig1}
     \caption{\emph{Deep Learning for Domain Adaptation Workflow}}
     \label{fig:mesh2}
 \end{figure}
@@ -90,8 +92,8 @@ Adaptation Networks}
 \end{itemize}
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.5\textwidth]{fig2}
-    \caption{\emph{Transferability of features decreases while task discrepancy increases}}
+    \includegraphics[width=0.4\textwidth]{fig2}
+    \caption{Transferability of features decreases while task discrepancy increases}
     \label{fig:mesh2}
 \end{figure}
 \end{frame}
@@ -110,6 +112,12 @@ Adaptation Networks}
   \end{itemize}
 \end{itemize}
 \end{block}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.4\textwidth]{fig3}
+    \caption{The DAN architecture for learning transferable features }
+    \label{fig:mesh2}
+\end{figure}
 \end{frame}
 
 

@@ -12,3 +12,9 @@
   \end{itemize}
 \end{itemize}
 \end{block}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.4\textwidth]{fig3}
+    \caption{The DAN architecture for learning transferable features }
+    \label{fig:mesh2}
+\end{figure}
