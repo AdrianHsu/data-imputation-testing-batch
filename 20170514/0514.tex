@@ -142,5 +142,24 @@ $\lambda > 0$ is a penality, $D_*^\ell=\{h_i^{*\ell}\}$ is the $\ell$-th layer h
 \end{block}
 
 \end{frame}
+\begin{frame}[fragile]{MK-MMD}
+\begin{block}{Theorem (Two-Sample Test (Gretton et al. 2012))}
+\begin{itemize}
+\item{$p=q$ iff $d^2_k(p,q)=0$ (In practice,  $d^2_k(p,q)<\epsilon$})
+\item{$\max\limits_{k \in \kappa}d_k^2(D_s^\ell,D_t^\ell)\sigma_k^{-2} \Leftrightarrow$ minType II Error ($d^2_k(p,q)<\epsilon$ when $p\neq q$)}
+\end{itemize}
+\end{block}
+\begin{block}{Multiple Kernel Maximum Mean Discrepancy (MK-MMD)}
+$\triangleq$ RKHS distance between kernel embeddings of distributions p and q
+\begin{equation}
+d_k^2(p,q)\triangleq \lVert E_p[\phi(x^s)]-E_q[\phi(x^t)] \rVert_\mathcal{H_\mathrm{k}}^2
+\end{equation}
+$k(\mathbf{x}^s,\mathbf{x}^t)=\langle\phi(\mathbf{x}^s), \phi(\mathbf{x}^t)\rangle$ is a convex combination of m PSD kernels
+\begin{equation}
+\kappa\triangleq\Bigg\{k=\sum\limits_{u=1}^m\beta_uk_u:\sum\limits_{u=1}^m\beta_u=1,\beta_u\geq0,\forall u\Bigg\}
+\end{equation}
+\end{block}
+
+\end{frame}
 
 \end{document}
